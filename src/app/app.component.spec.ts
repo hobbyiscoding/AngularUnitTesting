@@ -1,3 +1,5 @@
+import { ComponentFixture } from '@angular/core/testing/src/testing';
+import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { LoginService } from './service/login.service';
 
@@ -10,11 +12,28 @@ class MockService {
 
 describe(`it should test AppComponent`, () => {
     let appComponent: AppComponent;
-    let loginService: MockService;
+    let fixture: ComponentFixture<AppComponent>;
 
     beforeEach(()=>{
-        loginService = new MockService();
-        appComponent = new AppComponent(loginService);
+        TestBed.configureTestingModule({
+            declarations:[AppComponent],
+            providers:[LoginService]
+        });
+
+        TestBed.overrideComponent(
+            AppComponent,
+            {
+                set: {
+                    providers:[
+                        {provide:LoginService, useClass:MockService}
+                    ]
+                }
+            }
+        );
+
+        fixture = TestBed.createComponent(AppComponent);
+        appComponent = fixture.componentInstance;
+
     });
 
     it(`should check whether the compo`, () => {
