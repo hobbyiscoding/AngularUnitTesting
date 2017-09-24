@@ -1,5 +1,4 @@
 import { LoginService } from './service/login.service';
-import { SnakeCasePipe } from './pipe/snakecase.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -9,8 +8,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SnakeCasePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
