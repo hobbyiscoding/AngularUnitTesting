@@ -1,24 +1,24 @@
 import { AppComponent } from './app.component';
 import { LoginService } from './service/login.service';
 
+class MockService {
+    public login(username:string, password:string):boolean {
+        return true;
+    }
+}
+
 
 describe(`it should test AppComponent`, () => {
-    let loginService: LoginService;
     let appComponent: AppComponent;
+    let loginService: MockService;
 
     beforeEach(()=>{
-        loginService = new LoginService();
+        loginService = new MockService();
         appComponent = new AppComponent(loginService);
     });
 
     it(`should check whether the compo`, () => {
-        spyOn(loginService, 'login').and.returnValue(true);
         expect(appComponent.isAuthenticated()).toBeTruthy();
-    });
-
-    it(`should check whether the compo`, () => {
-        spyOn(loginService, 'login').and.returnValue(false);
-        expect(appComponent.isAuthenticated()).toBeFalsy();
     });
 
 
