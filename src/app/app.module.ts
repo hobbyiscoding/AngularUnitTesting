@@ -1,3 +1,4 @@
+import { LoginService } from './service/login.service';
 import { SnakeCasePipe } from './pipe/snakecase.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,7 +17,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

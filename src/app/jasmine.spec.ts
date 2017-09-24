@@ -1,5 +1,5 @@
 
-describe(`it shows how jasmine works`, () => {
+xdescribe(`it shows how jasmine works`, () => {
     
      beforeEach(() => {
          console.log('set up test');
